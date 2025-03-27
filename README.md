@@ -2,7 +2,7 @@
 
 A web application to organize and browse academic papers for research. Designed for PhD students and researchers who need to keep track of the papers they have read.
 
-![Screenshot of the Academic Papers Collection website](.github/screenshot.png)
+![Screenshot of the Academic Papers Collection website](.github/screenshot.jpg)
 
 ## Features
 

@@ -60,6 +60,10 @@ export const papers: Paper[] = [
 
 export const categories = Array.from(new Set(papers.map(paper => paper.category)));
 
+export function getAllPapers(): Paper[] {
+  return papers;
+}
+
 export function getPaperById(id: string): Paper | undefined {
   return papers.find(paper => paper.id === id);
 }

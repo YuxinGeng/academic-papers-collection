@@ -4,7 +4,21 @@ import PaperCard from '@/components/PaperCard';
 import { getPapersByCategory, categories } from '@/data/papers';
 import { notFound } from 'next/navigation';
 
-export default function CategoryDetail({ params }: { params: { category: string } }) {
+// This function tells Next.js which paths to pre-render
+export function generateStaticParams() {
+  return categories.map(category => ({
+    category,
+  }));
+}
+
+type Props = {
+  params: {
+    category: string;
+  };
+};
+
+export default function CategoryDetail(props: Props) {
+  const { params } = props;
   const decodedCategory = decodeURIComponent(params.category);
   
   if (!categories.includes(decodedCategory)) {

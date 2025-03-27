@@ -1,7 +1,15 @@
 import Link from 'next/link';
 import { FaArrowLeft, FaExternalLinkAlt, FaRegCalendarAlt, FaTag, FaCheckCircle, FaRegCircle } from 'react-icons/fa';
-import { getPaperById } from '@/data/papers';
+import { getPaperById, getAllPapers, Paper } from '@/data/papers';
 import { notFound } from 'next/navigation';
+
+// This function tells Next.js which paths to pre-render
+export function generateStaticParams() {
+  const papers = getAllPapers();
+  return papers.map((paper: Paper) => ({
+    id: paper.id,
+  }));
+}
 
 export default function PaperDetail({ params }: { params: { id: string } }) {
   const paper = getPaperById(params.id);
